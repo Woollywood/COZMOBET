@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title></title>
+
+    <!-- CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/media.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/select.css">
+  </head>
+   
+  
+  <body>
+
+    <div class="logo__sign">
+      <img src="images/logo.svg" alt="">
+    </div>
+
+    <div class="sign__title">Sign up</div>
+    
+
+    <div class="lk_btn__wrap lk_sign__wrap flex">
+      <button class="active">
+        Personal data
+      </button>
+
+      <button>
+        Account Cozmo
+      </button>
+    </div>
+
+    <form action="">
+        <div class="sign__form">
+          <label for="">Name</label>
+          <input type="text" placeholder="Name">
+         
+        </div>
+
+        <div class="sign__form">
+          <label for="">Surname</label>
+          <input type="text" placeholder="Username" class="password">
+         
+        </div>
+
+        <div class="select__sign">
+          <input type="text" hidden name="country" id="country" value="Russia">
+          
+          
+          <div class="select">
+            
+              <div class="current-value">
+                  <div class="select_abs">Country</div>
+                  <div class="value-wrap">
+                      <img src="flag/Russia.png">
+                      <span>Russia</span>
+                  </div>
+                  <img id = "deploy-btn" data-state="rolled" src="images/drop-arrow.svg">               
+              </div>
+              <div class="options-list">
+                  <div class="option current">
+                      <img src="flag/Russia.png">
+                      <span>Russia</span>                    
+                  </div>
+  
+                  <div class="option">
+                      <img src="flag/Germany.png">
+                      <span>Germany</span>                    
+                  </div>
+  
+                  <div class="option">
+                      <img src="flag/France.png">
+                      <span>France</span>                    
+                  </div>
+  
+                  <div class="option">
+                      <img src="flag/Switzerland.png">
+                      <span>Switzerland</span>                    
+                  </div>
+                  <div class="option">
+                      <img src="flag/Spain.png">
+                      <span>Spain</span>                    
+                  </div>
+                  <div class="option">
+                      <img src="flag/Unitedkingdom.png">
+                      <span>United Kingdom</span>                    
+                  </div>
+                  
+              </div>
+          </div>
+  
+      
+        </div>
+
+        <div class="sign__form signup__form calendar">
+          <label for="">Date of birth</label>
+          <input type="text" placeholder="15.03.1857" class="password">
+         
+        </div>
+
+     
+
+        <button class="btn btn__signup signin_btn">Next</button>
+        <button class="btn btn__signup signin_btn signin_btn2 black">Already have account?  <a href="#">Sign in</a></button>
+    </form>
+
+    <a href="#" class="open__destop"><img src="images/open-desktop.svg" alt=""></a>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/select.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

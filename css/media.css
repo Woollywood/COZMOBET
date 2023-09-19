@@ -1,0 +1,120 @@
+
+
+
+
+
+@media screen and (max-width: 1366px) {
+
+}
+
+
+/* стили для md-устройств */
+@media screen and (max-width: 1200px) {
+
+}
+
+
+/* стили для sm-устройств */
+@media screen and (max-width: 1024px) {
+
+  
+}
+
+/* стили для sm-устройств */
+@media screen and (max-width: 992px) {
+
+  
+}
+
+
+/* Ipad*/ 
+@media screen and (max-width: 768px) {
+
+}
+
+
+/* Ipad mini*/ 
+@media screen and (max-width: 640px) {
+
+}
+
+/* Galaxy S8+*/ 
+@media screen and (max-width: 480px) {
+
+    
+}
+
+
+
+/* Galaxy*/ 
+@media screen and (max-width: 415px) {
+    
+}
+
+
+/* Iphone 6.7.8 */ 
+@media screen and (max-width: 400px) {
+    .menu__top {
+        padding: 0 0;
+      }
+
+      .match__block2 button {
+        background: #30395e;
+        border-radius: 7px;
+        color: #fff;
+        padding: 10px 0px 10px 0px;
+        font-size: 12px;
+        font-family: 'Rubikmedium';
+        margin: 0 1.5px;
+        width: 35px;
+        text-align: center;
+    }
+
+    .match__block_title2 {
+        font-size: 13px;
+        font-family: 'Rubikmedium';
+        line-height: 20px;
+        padding: 0 0 0 9px;
+        border-left: 2px solid #79cf64;
+        /* background: #79cf64; */
+    }
+
+    .menu__top li a {
+        text-decoration: none;
+        color: #9ba7d6;
+        font-size: 12px;
+    }
+
+    .btn {
+  
+font-family: 'Rubikmedium';
+  
+font-size: 12px;
+  
+padding: 11px 7px 11px 8px;
+  
+}
+
+    .balance__top {
+        font-family: 'Rubikmedium';
+        font-size: 12px;
+        margin: 0 7px 0 7px;
+    }
+
+    #nav-cta:checked + aside .cta {
+        left: 299px;
+        border-radius: 0 5px 5px 0;
+        width: 35px;
+    }
+
+    aside {
+        width: 300px;
+    }
+}
+
+/* Iphone 5.5SE */ 
+@media screen and (max-width: 350px) {
+    .container {
+        padding: 0 15px;
+    }
+}
