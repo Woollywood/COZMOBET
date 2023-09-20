@@ -8,6 +8,8 @@
     <title></title>
 
     <!-- CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
+		<link rel="stylesheet" href="css/datepicker.css">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/main-2.css" rel="stylesheet">
     <link href="css/media.css" rel="stylesheet">
@@ -172,7 +174,6 @@
         </ul>
       </div>
     </section>
-
    
     <section class="match">
         <div class="match__main">
@@ -189,7 +190,7 @@
         <div class="result__wrap">
           <div class="result__tit">Results</div>
           <div class="result__text__wrap">
-            <div class="result__text__is">
+            <div class="result__text__is" data-datepicker>
               <div class="result__perid">Filter by period</div>
               <div class="result__perid__text">13 Aug, 2023 - 14 Aug, 2023</div>
             </div>
@@ -729,7 +730,6 @@
     </section> -->
 
 
-
     <div class="bottom__fixed">
       <div class="fixed__btn flex justify_center">
         <button class="">
@@ -854,6 +854,8 @@
       <div class="logo__bottom"><img src="images/logo.svg" alt=""></div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://unpkg.com/js-datepicker"></script>
+		<script src="js/datepicker.js"></script>
     <script src="js/select.js"></script>
     <script src="js/main.js"></script>
   </body>

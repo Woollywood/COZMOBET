@@ -441,6 +441,7 @@ button.button.button-filter.dropdown-filter.medium {
   padding: 10px 61px 10px 18px;
   background: url(../images/set/calendar.svg)200px center no-repeat #131930;
   margin-bottom: 9px;
+	cursor: pointer;
 }
 
 .result__perid {
