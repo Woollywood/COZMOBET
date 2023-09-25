@@ -28,13 +28,17 @@
 .qs-squares {
 	padding: 7px;
 	flex-direction: row-reverse;
-	gap: 4px;
+	// gap: 4px;
 }
 
 .qs-square {
 	flex: 0 0 50px;
 	width: 50px;
 	height: 50px;
+
+	&.qs-active {
+		background-color: transparent;
+	}
 
 	&.qs-day {
 		color: rgba(235, 235, 245, 0.3);
@@ -76,9 +80,24 @@
 				height: 36px;
 				background-color: #485890;
 			}
+
+			&.left-end {
+				&::before {
+					border-top-left-radius: 25px;
+					border-bottom-left-radius: 25px;
+				}
+			}
+
+			&.right-end {
+				&::before {
+					border-top-right-radius: 25px;
+					border-bottom-right-radius: 25px;
+				}
+			}
 		}
 
 		&.first-slot {
+			color: #fff;
 			font-size: 24px;
 			line-height: 29px;
 
@@ -93,6 +112,45 @@
 				height: 44px;
 				border-radius: 50%;
 				background-color: #1ea0ff;
+			}
+
+			&::before {
+				clip-path: inset(0 0 0 50%);
+			}
+
+			&.right-end {
+				&::before {
+					clip-path: inset(100% 100% 100% 100%);
+				}
+			}
+		}
+
+		&.last-slot {
+			color: #1ea0ff;
+			font-size: 24px;
+			line-height: 29px;
+
+			&::after {
+				content: '';
+				position: absolute;
+				z-index: -1;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 44px;
+				height: 44px;
+				border-radius: 50%;
+				background-color: #364579;
+			}
+
+			&::before {
+				clip-path: inset(0 50% 0 0);
+			}
+
+			&.left-end {
+				&::before {
+					clip-path: inset(100% 100% 100% 100%);
+				}
 			}
 		}
 	}
