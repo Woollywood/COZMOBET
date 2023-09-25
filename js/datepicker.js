@@ -88,7 +88,9 @@ class PickerRange {
 		this[action](event);
 	}
 
-	onMousedown(event) {
+	onPointerdown(event) {
+		event.stopPropagation();
+		event.stopImmediatePropagation();
 		let x = event.clientX;
 		let y = event.clientY;
 
@@ -104,11 +106,11 @@ class PickerRange {
 		}
 	}
 
-	onMouseup(event) {
+	onPointerup(event) {
 		this.movedSlot = '';
 	}
 
-	onMousemove(event) {
+	onPointermove(event) {
 		let x = event.clientX;
 		let y = event.clientY;
 
@@ -241,11 +243,21 @@ window.addEventListener('load', (e) => {
 				// disableYearOverlay: true,
 			});
 
+			document.body.addEventListener(
+				'touchmove',
+				(e) => {
+					if (picker.calendar.contains(e.target) || picker.calendar === e.target) {
+						e.preventDefault();
+					}
+				},
+				{ passive: false }
+			);
+
 			let rangePicker = new PickerRange(picker);
 
-			picker.calendar.addEventListener('mousedown', rangePicker);
-			picker.calendar.addEventListener('mouseup', rangePicker);
-			picker.calendar.addEventListener('mousemove', rangePicker);
+			picker.calendar.addEventListener('pointerdown', rangePicker);
+			picker.calendar.addEventListener('pointerup', rangePicker);
+			picker.calendar.addEventListener('pointermove', rangePicker);
 
 			document.querySelector('.qs-datepicker-container')?.addEventListener('click', (e) => {
 				if (e.target.closest('.qs-datepicker__submit')) {
