@@ -1,133 +1,145 @@
 .qs-datepicker-container {
-	border-radius: 9px;
-	border: 2px solid #1ea0ff;
-	background: #232c4b;
-	min-width: 392px;
+  border-radius: 9px;
+  border: 2px solid #1ea0ff;
+  background: #232c4b;
+  min-width: 392px;
 }
 
 .qs-controls {
-	padding: 14px 16px 6px;
-	background-color: #232c4b;
-	justify-content: flex-end;
+  padding: 14px 16px 6px;
+  background-color: #232c4b;
+  justify-content: flex-end;
 }
 
 .qs-arrow.qs-left,
 .qs-arrow.qs-right {
-	display: none;
+  display: none;
 }
 
 .qs-month-year {
-	color: #fff;
-	font-size: 17px;
-	font-family: 'Rubikmedium';
-	font-weight: 500;
-	line-height: 24px;
-	letter-spacing: -0.43px;
+  color: #fff;
+  font-size: 17px;
+  font-family: "Rubikmedium";
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.43px;
 }
 
 .qs-squares {
-	padding: 7px;
-	flex-direction: row-reverse;
-	gap: 4px;
+  padding: 7px;
+  flex-direction: row-reverse;
+  gap: 4px;
 }
 
 .qs-square {
-	flex: 0 0 50px;
-	width: 50px;
-	height: 50px;
+  flex: 0 0 50px;
+  width: 50px;
+  height: 50px;
 }
-
 .qs-square.qs-day {
-	color: rgba(235, 235, 245, 0.3);
-	font-size: 11px;
-	font-family: 'Rubikmedium';
-	font-weight: 500;
-	line-height: 18px;
-	text-transform: uppercase;
-
-	width: auto;
-	height: auto;
-	padding-bottom: 10px;
+  color: rgba(235, 235, 245, 0.3);
+  font-size: 11px;
+  font-family: "Rubikmedium";
+  font-weight: 500;
+  line-height: 18px;
+  text-transform: uppercase;
+  width: auto;
+  height: auto;
+  padding-bottom: 10px;
 }
-
 .qs-square.qs-num {
-	position: relative;
-	z-index: 3;
-	color: #fff;
-	font-size: 17px;
-	font-family: 'Rubik';
-	font-weight: 400;
-	line-height: 24px;
-	text-transform: uppercase;
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  font-size: 17px;
+  font-family: "Rubik";
+  font-weight: 400;
+  line-height: 24px;
+  text-transform: uppercase;
 }
-
 .qs-square.qs-num.qs-current {
-	color: #0084ff;
-	text-decoration: none;
+  color: #0084ff;
+  text-decoration: none;
+}
+.qs-square.qs-num.in-range::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -2px;
+  width: calc(100% + 4px);
+  height: 36px;
+  background-color: #485890;
+}
+.qs-square.qs-num.first-slot {
+  font-size: 24px;
+  line-height: 29px;
+}
+.qs-square.qs-num.first-slot::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #1ea0ff;
 }
 
 .qs-datepicker__actions {
-	display: flex;
-	flex-direction: row-reverse;
-	align-items: center;
-	gap: 6px;
-	padding: 0 9px 21px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 6px;
+  padding: 0 9px 21px;
 }
 
 .qs-datepicker__field {
-	flex: 1 1 auto;
-
-	border-radius: 7px;
-	padding: 10px 18px 11px;
-	background: #131930;
-	height: 51px;
-
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	gap: 4px;
-}
-
-.qs-datepicker__field--from {
+  flex: 1 1 auto;
+  border-radius: 7px;
+  padding: 10px 18px 11px;
+  background: #131930;
+  height: 51px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
 }
 
 .qs-datepicker__field-title {
-	color: #9ba7d6;
-
-	font-family: 'Rubikmedium';
-	font-size: 10px;
-	font-weight: 500;
-	line-height: normal;
+  color: #9ba7d6;
+  font-family: "Rubikmedium";
+  font-size: 10px;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .qs-datepicker__field-text {
-	color: #fefeff;
-	font-family: 'Rubikmedium';
-	font-size: 12px;
-	font-weight: 500;
-	line-height: normal;
-}
-
-.qs-datepicker__field--to {
+  color: #fefeff;
+  font-family: "Rubikmedium";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: normal;
 }
 
 .qs-datepicker__submit {
-	flex: 0 0 59px;
-	width: 59px;
-	height: 48px;
-
-	padding: 10px 15px;
-	border-radius: 7px;
-	background: radial-gradient(104.57% 91.82% at 39.19% 8.82%, #7cd266 0%, rgba(124, 210, 102, 0) 100%), #55a548;
-
-	color: #fff;
-	font-size: 14px;
-	font-family: 'Rubikmedium';
-	font-weight: 500;
-	line-height: normal;
+  flex: 0 0 59px;
+  width: 59px;
+  height: 48px;
+  padding: 10px 15px;
+  border-radius: 7px;
+  background: radial-gradient(104.57% 91.82% at 39.19% 8.82%, #7cd266 0%, rgba(124, 210, 102, 0) 100%), #55a548;
+  color: #fff;
+  font-size: 14px;
+  font-family: "Rubikmedium";
+  font-weight: 500;
+  line-height: normal;
 }
 
 .qs-square:not(.qs-empty):not(.qs-disabled):not(.qs-day):not(.qs-active):hover {
-	background-color: transparent;
-	color: #1ea0ff;
+  background-color: transparent;
+  color: #1ea0ff;
 }
