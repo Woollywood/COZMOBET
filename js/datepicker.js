@@ -8,6 +8,10 @@ Date.prototype.daysInMonth = function () {
 class PickerRange {
 	constructor(picker) {
 		this.picker = picker;
+		this.fields = {
+			from: picker.calendar.querySelector('.qs-datepicker__field--from'),
+			to: picker.calendar.querySelector('.qs-datepicker__field--to'),
+		};
 		this.rangeList = new Map();
 
 		this._rangeInit();
@@ -188,34 +192,53 @@ window.addEventListener('load', (e) => {
 	let pickerElemts = document.querySelectorAll('[data-datepicker]');
 	if (pickerElemts) {
 		pickerElemts.forEach((element) => {
-			let pickerObserver = new MutationObserver((MutationRecords) => {
-				for (const { addedNodes } of MutationRecords) {
+			let rangePicker = null;
+
+			let pickerObserver = new MutationObserver((mutationRecords) => {
+				let observedPickers = [];
+				for (const { addedNodes } of mutationRecords) {
+					addedNodes.forEach((elem) => {
+						observedPickers.push(elem.querySelector('.qs-datepicker'));
+					});
+
 					for (const node of addedNodes) {
 						if (node.classList.contains('qs-datepicker-container')) {
 							node.querySelector('.qs-datepicker').insertAdjacentHTML(
 								'beforeend',
 								`<div class="qs-datepicker__actions">
-									<div class="qs-datepicker__field qs-datepicker__field--from">
-										<div class="qs-datepicker__field-title">From</div>
-										<div class="qs-datepicker__field-text">4 Aug, 2023</div>
-									</div>
-									<div class="qs-datepicker__field qs-datepicker__field--to">
-										<div class="qs-datepicker__field-title">To</div>
-										<div class="qs-datepicker__field-text">17 Aug, 2023</div>
-									</div>
 									<button class="qs-datepicker__submit" type="button">OK</button>
 								</div>`
 							);
 						}
 					}
 				}
+
+				observedPickers.forEach((picker) => {
+					let mutationMonthObserver = new MutationObserver((mutationRecords) => {
+						mutationRecords.forEach((mutationRecord) => {
+							let target = mutationRecord.target;
+							if (!target.querySelector('.qs-datepicker__actions')) {
+								target.insertAdjacentHTML(
+									'beforeend',
+									`<div class="qs-datepicker__actions">
+										<button class="qs-datepicker__submit" type="button">OK</button>
+									</div>`
+								);
+							}
+						});
+					});
+
+					mutationMonthObserver.observe(picker, {
+						childList: true,
+					});
+				});
 			});
 
 			pickerObserver.observe(element.parentElement, {
 				childList: true,
 			});
 
-			const picker = datepicker('[data-datepicker]', {
+			const picker = datepicker(element, {
 				formatter: (input, date, instance) => {
 					const value = date.toLocaleDateString();
 					input.value = value;
@@ -227,6 +250,7 @@ window.addEventListener('load', (e) => {
 				},
 				onShow: (instance) => {
 					// console.log('Calendar showing.');
+					calendarPositionObserve(picker.calendarContainer);
 					rangePicker.stylesInit();
 				},
 				onHide: (instance) => {
@@ -234,11 +258,9 @@ window.addEventListener('load', (e) => {
 				},
 				onMonthChange: (instance) => {
 					// Show the month of the selected date.
-					console.log(instance.currentMonthName);
 					rangePicker.updateCells();
 					rangePicker.updateRange();
 					rangePicker.stylesInit();
-					console.log(rangePicker.rangeList);
 				},
 				// disableYearOverlay: true,
 			});
@@ -253,11 +275,13 @@ window.addEventListener('load', (e) => {
 				{ passive: false }
 			);
 
-			let rangePicker = new PickerRange(picker);
+			rangePicker = new PickerRange(picker);
 
 			picker.calendar.addEventListener('pointerdown', rangePicker);
 			picker.calendar.addEventListener('pointerup', rangePicker);
 			picker.calendar.addEventListener('pointermove', rangePicker);
+
+			window.addEventListener('resize', (e) => calendarPositionObserve(picker.calendarContainer));
 
 			document.querySelector('.qs-datepicker-container')?.addEventListener('click', (e) => {
 				if (e.target.closest('.qs-datepicker__submit')) {
@@ -266,5 +290,23 @@ window.addEventListener('load', (e) => {
 				}
 			});
 		});
+	}
+
+	function calendarPositionObserve(calendar) {
+		if (window.innerWidth <= 479) {
+			let calendarContainer = calendar.closest('[data-calendar-container]');
+			let calendarComputedContainer = getComputedStyle(calendarContainer);
+			let calendarBox = calendar.getBoundingClientRect();
+
+			calendar.style.left =
+				(calendarContainer.clientWidth -
+					(parseInt(calendarComputedContainer.paddingLeft) +
+						parseInt(calendarComputedContainer.paddingRight)) -
+					calendarBox.width) /
+					2 +
+				'px';
+		} else {
+			calendar.style.left = '0';
+		}
 	}
 });
