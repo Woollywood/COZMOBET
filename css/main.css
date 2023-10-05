@@ -55,7 +55,7 @@ body {
   margin: 0;
   font-family: 'Rubik';
   padding: 65px 0px 0 0;
-  direction:rtl;
+  /* direction:rtl; */
 }
 
 a {color: #fff;}
