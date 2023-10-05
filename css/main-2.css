@@ -50,9 +50,9 @@ span.num {
   font-family: 'Rubikmedium';
   font-size: 12px;
   font-style: normal;
-
   line-height: normal;
-  margin-right: 17px;
+  margin-right: 1px;
+  padding: 0;
 }
 
 .match__tit {
@@ -61,10 +61,12 @@ span.num {
   font-size: 12px;
   font-style: normal;
   line-height: normal;
+  display: flex;
 }
 
 span.num__is {
-  margin-right: 15px;
+  margin-right: 0px;
+  padding: 0;
 }
 
 .time__is {
@@ -260,13 +262,7 @@ padding: 0 10px 0 0;
 transition: 0.3s;
 }
 
-.dropdown-wrapper {
-position: relative;
-width: 66px;
-padding: 3px 10px;
-border-radius: 4px;
-background: #DDE2F4;
-}
+.dropdown-wrapper {position: relative;width: 66px;padding: 3px 10px;border-radius: 4px;background: #DDE2F4;margin: 0 10px 0 0px;}
 
 .dropdown-wrapper2 {
 width: 75px;
@@ -376,7 +372,7 @@ button.button.button-filter.dropdown-filter.medium {
   font-style: normal;
   line-height: normal;
   text-align: left;
-  margin: 0;
+  margin: 0 10px 0 0px;
   padding: 0;
   background: transparent!important;
 }
@@ -441,7 +437,6 @@ button.button.button-filter.dropdown-filter.medium {
   padding: 10px 61px 10px 18px;
   background: url(../images/set/calendar.svg)200px center no-repeat #131930;
   margin-bottom: 9px;
-	cursor: pointer;
 }
 
 .result__perid {
@@ -521,7 +516,7 @@ table.table__match thead{
 }
 
 table.table__match thead tr th {
-  padding: 8px 5px;
+  padding: 8px 12px;
   color: #5C658C;
   font-family: 'Rubikmedium';
   font-size: 10px;
@@ -530,7 +525,7 @@ table.table__match thead tr th {
 }
 
 table.table__match tr td {
-  padding: 5px 6px;
+  padding: 5px 12px;
 }
 
 .dropdown-wrapper.filter-padding.is {
@@ -690,8 +685,10 @@ span.check__img {
 }
 
 span.num__tits {
-    margin: 0 0 0 13px;
+    margin: 0 0 0 0px;
 }
+
+
 
 span.check__num {
     display: flex;
@@ -890,7 +887,7 @@ button.panel__but.is span {
     margin: 0px 0 0 3px;
     position: absolute;
     top: 0px;
-    right: 2px;
+    right: -1px;
 }
 
 button.panel__but.is {

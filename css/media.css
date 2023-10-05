@@ -74,7 +74,7 @@
         font-size: 13px;
         font-family: 'Rubikmedium';
         line-height: 20px;
-        padding: 0 0 0 9px;
+        padding: 0 9px 0 9px;
         border-left: 2px solid #79cf64;
         /* background: #79cf64; */
     }

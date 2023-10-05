@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+  $('#toggle').click(function() {
+    $("#burger-menu").toggleClass('open');
+    $("#toggle").toggleClass('open');
+    $("#menu").toggleClass('open');
+  });
+
   let triggersModal = document.querySelectorAll(".js-show-modal");
       let modals = document.querySelectorAll(".js-modal");
 
@@ -78,15 +84,37 @@ $(document).ready(function(){
   }
 
 
-const burger = document.querySelector(".cta");
-const body = document.querySelector("body");
+// const burger = document.querySelector(".cta");
+// const body = document.querySelector("body");
+// const header = document.querySelector("header");
+
+
+// burger.addEventListener("click", () => {
+//   body.classList.toggle("body-open");
+//   header.classList.toggle("body-open");
+// });
+
+
+const burger = document.querySelector('.burger');
+const navbar = document.querySelector('.mt-mobile');
+const body = document.querySelector('body');
 const header = document.querySelector("header");
 
-
-burger.addEventListener("click", () => {
-  body.classList.toggle("body-open");
-  header.classList.toggle("body-open");
+burger.addEventListener('click', () => {
+    navbar.classList.toggle('nav-open');
+    body.classList.toggle('body-open');
+    header.classList.toggle("body-open");
+    burger.classList.toggle('burger-open');
 });
+function myFunction() {
+  document.getElementById(".rtl_right").style.direction = "rtl";
+  document.getElementById(".rtl_main_menu").style.direction = "rtl";
+  document.getElementById(".sign_form_img").style.direction = "rtl";
+  document.getElementById(".rtl__match").style.direction = "rtl";
+  document.getElementById(".num__tits").style.direction = "rtl";
+  document.getElementById(".rtl__span").style.direction = "rtl";
+  document.getElementById(".sign_form_img").style.direction = "rtl";
+}
 
   
   });
