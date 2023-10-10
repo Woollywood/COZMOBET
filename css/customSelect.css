@@ -1,0 +1,108 @@
+.custom-select {
+  min-width: 0;
+  position: relative;
+}
+.custom-select__body {
+  position: relative;
+}
+.custom-select__title {
+  color: inherit;
+  text-align: left;
+  border: 1px solid #d9d9d9;
+  background-color: #fff;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 4px;
+}
+.custom-select__value {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  height: 30px;
+  padding: 0 15px;
+  gap: 10px;
+}
+.custom-select__value > * {
+  flex: 1 1 auto;
+}
+.custom-select__value:after {
+  content: "";
+  align-self: stretch;
+  flex: 0 0 10px;
+  transition: all 0.3s ease 0s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+._select-open .custom-select__value:after {
+  transform: rotate(-180deg);
+}
+.custom-select__value._custom-select-pseudo-label::before {
+  content: attr(data-pseudo-label);
+  opacity: 0.5;
+}
+.custom-select__content {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.custom-select__text {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.custom-select__input {
+  width: 100%;
+  background-color: transparent;
+  height: 100%;
+}
+.custom-select__options {
+  color: #000;
+  position: absolute;
+  top: calc(100% - 1px);
+  border-radius: 0 0 4px 4px;
+  min-width: 100%;
+  left: 0;
+  background-color: #fff;
+  border-top: 0;
+  border: 1px solid #d9d9d9;
+  border-top: 0;
+  padding: 10px 0px 5px 0px;
+}
+.custom-select__scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 200px;
+}
+.custom-select__option {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  padding: 5px 15px;
+  color: inherit;
+}
+.custom-select__option._custom-select-selected {
+  background-color: #eee;
+}
+@media (any-hover: hover) {
+  .custom-select__option:hover {
+    background: #d9d9d9;
+  }
+}
+.custom-select__row {
+  display: inline-flex;
+  align-items: center;
+}
+.custom-select_show-top .custom-select__options {
+  top: auto;
+  bottom: calc(100% - 1px);
+  border: 1px solid #d9d9d9;
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+  padding: 5px 0px 10px 0px;
+}
+._custom-select-tag {
+  cursor: pointer;
+}
